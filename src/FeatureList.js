@@ -1,60 +1,27 @@
 import React, { Component } from 'react';
-
-// Normalizes string as a slug - a string that is safe to use
-// in both URLs and html attributes
 import slugify from 'slugify';
 import './App.css';
+import Features from './Features'
 
 class FeatureList extends Component {
-    
-render() {
+
+  render() {
     const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
+      style: 'currency',
+      currency: 'USD'
     });
-
-    const features = Object.keys(this.props.features).map((feature, idx) => {
-        const featureHash = feature + '-' + idx;
-        const options = this.props.features[feature].map(item => {
-          console.log(item)
-          const itemHash = slugify(JSON.stringify(item));
-          return (
-            <div key={itemHash} className="feature__item">
-              <input
-                type="radio"
-                id={itemHash}
-                value={item}
-                className="feature__option"
-                name={slugify(feature)}
-                checked={item.name === this.props.selected[feature].name}
-                onChange={
-                    (e) => this.props.handleFeatureUpdate(feature, item)}
-              />
-              <label htmlFor={itemHash} className="feature__label">
-                {item.name} ({USCurrencyFormat.format(item.cost)})
-              </label>
-            </div>
-          );
-        });
-  
-        return (
-          <fieldset className="feature" key={featureHash}>
-            <legend className="feature__name">
-              <h3>{feature}</h3>
-            </legend>
-            {options}
-          </fieldset>
-        );
-      });
-
-    return(
-    <form className="main__form">
-    <h2>Customize your laptop</h2>
-    {features}
-  </form>
-
-
-    )}
+    return (
+      <form className="main__form">
+        <h2>Customize your laptop</h2>
+        <Features
+          selected={this.props.selected}
+          features={this.props.features}
+          USCurrencyFormat={USCurrencyFormat}
+          updateFeature={this.props.updateFeature} 
+        />
+      </form>
+    )
+  }
 }
 
 export default FeatureList;
