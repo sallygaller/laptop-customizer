@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css';
+import Option from './Option';
 
 class Feature extends Component {
     render() {
-        console.log(this.props.options)
         const featureHash = this.props.options + '-' + this.props.idx;
-        const options = this.props.options.map(item => {
-            console.log(item)
-            const itemHash = slugify(JSON.stringify(item));
+        const options = this.props.options.map((option, index) => {
             return (
+                <Option
+                    featureName={this.props.featureName}
+                    selected={this.props.selected}
+                    option={option}
+                    key={index}
+                    USCurrencyFormat={this.props.USCurrencyFormat}
+                    updateFeature={this.props.updateFeature}
+                />
 
-                <div key={itemHash} className="feature__item">
-                    <input
-                        type="radio"
-                        id={itemHash}
-                        value={item}
-                        className="feature__option"
-                        name={itemHash}
-                        checked={item.name === this.props.selected[this.props.featureName].name}
-                        onChange={
-                            (e) => this.props.updateFeature(this.props.featureName, item)}
-                    />
-                    <label htmlFor={itemHash} className="feature__label">
-                        {item.name} ({item.cost})
-                  </label>
-                </div>
-            );
-        });
+            )
+        })
         return (
             <fieldset className="feature" key={featureHash}>
                 <legend className="feature__name">
