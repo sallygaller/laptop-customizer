@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css';
 
-class Options extends Component {
+class Option extends Component {
     render() {
     console.log(this.props.option)
     console.log(this.props.option.name)
@@ -21,7 +21,7 @@ class Options extends Component {
                     (e) => this.props.updateFeature(this.props.featureName, this.props.option)}
             />
             <label htmlFor={itemHash} className="feature__label">
-                {this.props.option.name} ({this.props.option.cost})
+                {this.props.option.name} ({this.props.USCurrencyFormat.format(this.props.option.cost)})
           </label>
         </div>
     );
@@ -29,4 +29,4 @@ class Options extends Component {
     }
 }
 
-export default Options;
+export default Option;

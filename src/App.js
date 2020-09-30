@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import slugify from 'slugify';
 import './App.css';
 import Summary from './Summary';
@@ -36,9 +35,6 @@ class App extends Component {
   }
 
   handleUpdateFeature = (feature, newValue) => {
-    console.log(feature)
-    console.log(newValue)
-
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
