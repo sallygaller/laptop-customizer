@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import slugify from 'slugify';
 import './App.css';
 import CartItem from './CartItem'
 
@@ -18,8 +17,8 @@ class Cart extends Component {
         });
         return (
             <div>
-            <h2>Your cart</h2>
-            {cart}
+                <h2>Your cart</h2>
+                {cart}
             </div>
         )
     }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import slugify from 'slugify';
 import './App.css';
 
 class CartItem extends Component {

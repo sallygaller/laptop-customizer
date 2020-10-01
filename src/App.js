@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import slugify from 'slugify';
 import './App.css';
 import Summary from './Summary';
 import Features from './Features'
@@ -40,7 +39,6 @@ class App extends Component {
     this.setState({
       selected
     });
-    console.log(selected)
   }
 
   render() {
@@ -54,7 +52,7 @@ class App extends Component {
             selected={this.state.selected}
             features={this.props.features}
             USCurrencyFormat={USCurrencyFormat}
-            updateFeature={this.handleUpdateFeature}     
+            updateFeature={this.handleUpdateFeature}
           />
           <Summary
             selected={this.state.selected}
