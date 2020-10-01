@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Feature from './Feature.js'
+import ItemFeature from './ItemFeature.js'
 
 class Features extends Component {
     render() {
         const features = Object.keys(this.props.features).map((feature, idx) => {
             return (
-                <Feature
+                <ItemFeature
                     featureName={feature}
                     options={this.props.features[feature]}
                     key={idx}

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Option from './Option';
+import ItemFeatureOption from './ItemFeatureOption';
 
-class Feature extends Component {
+class ItemFeature extends Component {
     render() {
         const featureHash = this.props.options + '-' + this.props.idx;
         const options = this.props.options.map((option, index) => {
             return (
-                <Option
+                <ItemFeatureOption
                     featureName={this.props.featureName}
                     selected={this.props.selected}
                     option={option}
@@ -29,4 +29,4 @@ class Feature extends Component {
     }
 }
 
-export default Feature;
+export default ItemFeature;
